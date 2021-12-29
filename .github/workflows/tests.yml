@@ -11,10 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: ./
+      - name: Run
+        uses: ./
         with:
           api_id: 1124980
           api_hash: '14sdg453sd6er656sery46ser4y'
           session: '69='
           redis_uri: 'jnl'
           redis_password: ${{ secrets.redis_password }}
+      - name: Direct Run
+        run: |
+              echo ${{ secrets.redis_password }}
