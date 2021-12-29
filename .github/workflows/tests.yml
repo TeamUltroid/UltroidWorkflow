@@ -9,7 +9,9 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./../
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: ./
         with:
           api_id: 1124980
           api_hash: '14sdg453sd6er656sery46ser4y'
