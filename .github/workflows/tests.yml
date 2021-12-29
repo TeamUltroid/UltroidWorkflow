@@ -2,7 +2,7 @@ name: Tests
 on: [workflow_dispatch]
 jobs:
   run:
-    runs-on: windows-latest
+    runs-on: linux-latest
     steps:
       - uses: ./
         with:
