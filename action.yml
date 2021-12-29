@@ -1,9 +1,6 @@
 name: '@teamultroid/ultroidworkflow'
 description: 'GitHub Action to run Ultroid on Github'
 author: 'Akash Pattnaik'
-branding:
-  icon: user-check
-  color: gray-dark
 inputs:
   api_id:
     description: 'Telegram API_ID of your account'
@@ -23,7 +20,6 @@ inputs:
 
   redis_password:
     description: 'RedisDB Password'
-    default: devcard.svg
     required: true
 
 runs:
