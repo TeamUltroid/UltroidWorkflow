@@ -9,4 +9,5 @@ WORKDIR /
 # ENTRYPOINT [ "python" ]
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y && rm -rf /var/lib/apt/lists/*
 
-CMD [ "python", "/test.py" ]
+RUN ls
+CMD [ "python", "test.py" ]
