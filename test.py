@@ -1,2 +1,2 @@
 import os
-print(os.environ)
+print(str(os.environ.get('INPUT_REDIS_PASSWORD')).split())
