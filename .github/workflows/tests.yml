@@ -1,0 +1,13 @@
+name: Tests
+on: [workflow_dispatch]
+jobs:
+  run:
+    runs-on: windows-latest
+    steps:
+      - uses: ./
+        with:
+          api_id: 1124980
+          api_hash: '14sdg453sd6er656sery46ser4y'
+          session: '69='
+          redis_uri: 'jnl'
+          redis_password: ${{ secrets.redis_password }}
