@@ -4,10 +4,9 @@ FROM theteamultroid/ultroid:main
 ENV TZ=Asia/Kolkata
 
 RUN mkdir /root/TeamUltroid/
-WORKDIR /
+COPY ./test.py /root/TeamUltroid
+WORKDIR /root/TeamUltroid
 
-# ENTRYPOINT [ "python" ]
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y && rm -rf /var/lib/apt/lists/*
 
-RUN ls
 CMD [ "python", "test.py" ]
