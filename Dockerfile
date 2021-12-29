@@ -4,7 +4,7 @@ FROM theteamultroid/ultroid:main
 ENV TZ=Asia/Kolkata
 
 RUN mkdir /root/TeamUltroid/
-COPY ./test.py /root/TeamUltroid
+# COPY ./test.py /root/TeamUltroid
 WORKDIR /root/TeamUltroid
 
 
@@ -21,4 +21,4 @@ RUN pip install -U pip \
     && pip install --no-cache-dir -r TeamUltroid/requirements.txt \
     && pip install install av --no-binary av
 
-CMD [ "./ultroid", "heroku" ]
+RUN ./ultroid heroku
