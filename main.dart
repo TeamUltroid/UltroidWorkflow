@@ -24,14 +24,6 @@ void main(List<String> args) async {
     runInShell: true,
     workingDirectory: './',
   );
-
-//   await Process.start(
-//     'dart',
-//     ['--version'],
-//     runInShell: true,
-//     workingDirectory: './',
-//     mode: ProcessStartMode.inheritStdio,
-//   );
   
   // Start UltroidCli
   var init = Process.runSync(
@@ -43,7 +35,6 @@ void main(List<String> args) async {
     workingDirectory: './',
   );
   stdout.write(init.stdout);
-//   stderr.write(init.stderr);
   
   // Install Dependencies
   Process.runSync(
