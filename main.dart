@@ -10,7 +10,7 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+//     mode: ProcessStartMode.inheritStdio,
   );
   
   // Give permissions to UltroidCli
@@ -32,7 +32,7 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+//     mode: ProcessStartMode.inheritStdio,
   );
   
   // Install Dependencies
@@ -55,6 +55,6 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+//     mode: ProcessStartMode.inheritStdio,
   );
 }
