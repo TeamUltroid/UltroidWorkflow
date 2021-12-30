@@ -26,7 +26,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  const init = Process.start(
+  var init = Process.start(
     'ultroid',
     [
       'init',
