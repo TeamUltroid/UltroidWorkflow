@@ -16,11 +16,15 @@ inputs:
 
   redis_uri:
     description: 'RedisDB URI'
-    required: true
+    required: false
 
   redis_password:
     description: 'RedisDB Password'
-    required: true
+    required: false
+  
+  database_url:
+    description: 'The PostgreSQL url'
+    required: false
 
 runs:
   using: 'docker'
