@@ -1,0 +1,32 @@
+name: Run Ultroid With UltroidCli On Github Actions
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  push:
+    branches:
+    - dev
+  workflow_dispatch:
+
+
+env:
+  api_id: 1170144
+  api_hash: '7cf4f6769b5cfcd1c3b7bd645779c634'
+  session: ${{ secrets.session }}
+  redis_uri: ${{ secrets.redis_uri }}
+  redis_password: ${{ secrets.redis_password }}
+  database_url: ${{ secrets.database_url }}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cancel Duplicate Workflows
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+            all_but_latest: true
+            access_token: ${{ github.token }}
+      - name: Run With UltroidCli
+        continue-on-error: true
+        uses: ./
