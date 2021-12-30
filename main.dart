@@ -4,13 +4,8 @@ void main(List<String> args) async {
   print('here, just to be sure !');
   // Install UltroidCli
   var x = await Process.run(
-    'ver',
-    [
-      '=',
-      '\$(curl https://raw.githubusercontent.com/BLUE-DEVIL1134/UltroidCli/main/version.txt)'
-      '&&',
-      'curl -L -o ultroid https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/\$ver/ultroid-linux',
-    ],
+    'curl -L -o ultroid https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux',
+    [],
     runInShell: true,
     workingDirectory: './',
 //     mode: ProcessStartMode.inheritStdio,
