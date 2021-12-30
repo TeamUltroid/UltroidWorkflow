@@ -48,7 +48,7 @@ void main(List<String> args) async {
   stderr.write(init.stderr);
   
   // Install Dependencies
-  Process.runSync(
+  Process.start(
     'pip',
     [
       'install', '-U', 'pip',
