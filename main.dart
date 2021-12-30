@@ -10,6 +10,7 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
+    mode: ProcessStartMode.inheritStdio,
   );
   
   // Give permissions to UltroidCli
@@ -24,7 +25,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  await Process.start(
+  await Process.run(
     './ultroid',
     [
       'init',
@@ -47,7 +48,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  await Process.start(
+  await Process.run(
     './ultroid',
     [
       'heroku',
