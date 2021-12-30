@@ -22,13 +22,12 @@ on:
     - cron: "0 */6 * * *"
   push:
     branches:
-    - dev
+    - main
   workflow_dispatch:
 
-
 env:
-  api_id: 1170144
-  api_hash: '7cf4f6769b5cfcd1c3b7bd645779c634'
+  api_id: 'YOUR_API_ID'
+  api_hash: 'YOUR_API_HASH'
   session: ${{ secrets.session }}
   redis_uri: ${{ secrets.redis_uri }}
   redis_password: ${{ secrets.redis_password }}
@@ -49,3 +48,15 @@ jobs:
         continue-on-error: true
         uses: teamultroid/ultroidworkflow@0.0.1
 ```
+ - You can either give the env vars directly or via secrets !
+
+
+# What's Happening ?
+
+ - The `.yml` file you created will run -
+   - Every 6 hours forever.
+   - Whenever you push a commit to `main` branch.
+   - Whenever you manually the workflow.
+ - Then the workflow will bring the file of your `root` repo into the hosted runner.
+ - Then other parallel running workflows will be cancelled.
+ - Finally, It will run Ultroid with [UltroidCli](https://github.com/BLUE-DEVIL1134/UltroidCli)
