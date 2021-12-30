@@ -57,6 +57,7 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
+    mode: ProcessStartMode.inheritStdio,
   );
   
   // Start UltroidCli
