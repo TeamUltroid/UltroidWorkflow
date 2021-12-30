@@ -43,22 +43,20 @@ void main(List<String> args) async {
     workingDirectory: './',
   );
   stdout.write(init.stdout);
-  stderr.write(init.stderr);
+//   stderr.write(init.stderr);
   
   // Install Dependencies
-  Process.start(
+  Process.runSync(
     'pip',
     [
       'install', '-U', 'pip',
-      '&&', 'pip', 'install', '--no-cache-dir', '-r', './TeamUltroid/requirements.txt',
-      '&&', 'pip', 'install', 'av', '--no-binary', 'av'
     ],
     runInShell: true,
     workingDirectory: './',
   );
   
   // Install Dependencies
-  Process.start(
+  Process.runSync(
     'pip',
     [
       'install', '--no-cache-dir', '-r', './TeamUltroid/requirements.txt',
@@ -68,7 +66,7 @@ void main(List<String> args) async {
   );
   
   // Install Dependencies
-  Process.start(
+  Process.runSync(
     'pip',
     [
       'install', 'av', '--no-binary', 'av'
