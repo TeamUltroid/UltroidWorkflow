@@ -3,15 +3,15 @@ import 'dart:io';
 void main(List<String> args) async {
   print('here, just to be sure !');
   // Install UltroidCli
-  var x = await Process.run(
-    'curl -L -o ultroid https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux',
-    [],
+  await Process.start(
+    'curl',
+    [
+      '-L', '-o', 'ultroid', 'https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux'
+    ],
     runInShell: true,
     workingDirectory: './',
-//     mode: ProcessStartMode.inheritStdio,
+    mode: ProcessStartMode.inheritStdio,
   );
-  stdout.write(x.stdout);
-  stderr.write(x.stderr);
   
   // Give permissions to UltroidCli
   await Process.start(
