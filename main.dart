@@ -1,4 +1,4 @@
-import 'dart:io' as io;
+import 'dart:io';
 
 void main(List<String> args) async {
   // Install UltroidCli
