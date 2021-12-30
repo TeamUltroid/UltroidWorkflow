@@ -36,7 +36,7 @@ void main(List<String> args) async {
   
   // Start UltroidCli
   var init = Process.runSync(
-    'ultroid',
+    './ultroid',
     [
       'init',
     ],
