@@ -26,15 +26,17 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  Process.runSync(
+  var init = Process.runSync(
     'ultroid',
     [
       'init',
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+//     mode: ProcessStartMode.inheritStdio,
   );
+  stdout.write(init.stdout);
+  stderr.write(init.stderr);
   
   // Install Dependencies
   Process.runSync(
@@ -49,7 +51,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  Process.runSync(
+  Process.start(
     'ultroid',
     [
       'heroku',
