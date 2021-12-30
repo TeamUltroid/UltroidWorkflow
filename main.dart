@@ -26,7 +26,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  var init = Process.start(
+  Process.runSync(
     'ultroid',
     [
       'init',
@@ -49,7 +49,7 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  Process.start(
+  Process.runSync(
     'ultroid',
     [
       'heroku',
