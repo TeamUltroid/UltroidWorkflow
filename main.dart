@@ -35,8 +35,6 @@ void main(List<String> args) async {
     workingDirectory: './',
     mode: ProcessStartMode.inheritStdio,
   );
-  stdout.addStream(init.stdout);
-  stderr.addStream(init.stderr);
   
   // Install Dependencies
   Process.runSync(
