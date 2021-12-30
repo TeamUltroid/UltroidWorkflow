@@ -14,15 +14,6 @@ void main(List<String> args) async {
     workingDirectory: './',
   );
 
-  // Test if downloaded
-  await Process.start(
-    'ls',
-    [],
-    runInShell: true,
-    workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
-  );
-
   // Give permissions to UltroidCli
   Process.runSync(
     'chmod',
@@ -32,6 +23,15 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
+  );
+
+  // Test if downloaded
+  await Process.start(
+    'dart',
+    ['--version'],
+    runInShell: true,
+    workingDirectory: './',
+    mode: ProcessStartMode.inheritStdio,
   );
   
   // Start UltroidCli
@@ -61,7 +61,7 @@ void main(List<String> args) async {
   
   // Start UltroidCli
   Process.start(
-    'ultroid',
+    './ultroid',
     [
       'heroku',
     ],
