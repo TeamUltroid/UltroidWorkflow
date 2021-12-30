@@ -3,7 +3,7 @@ import 'dart:io';
 void main(List<String> args) async {
   // Install UltroidCli
   await Process.start(
-    'ver=$(curl https://raw.githubusercontent.com/BLUE-DEVIL1134/UltroidCli/main/version.txt)',
+    'ver=\$(curl https://raw.githubusercontent.com/BLUE-DEVIL1134/UltroidCli/main/version.txt)',
     [
       '&&',
       'curl -L -o ultroid https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/\$ver/ultroid-linux',
