@@ -1,20 +1,21 @@
 import 'dart:io';
 
 void main(List<String> args) async {
-  print('here, just to be sure !');
   // Install UltroidCli
-  await Process.start(
+  Process.runSync(
     'curl',
     [
-      '-L', '-o', 'ultroid', 'https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux'
+      '-L',
+      '-o',
+      'ultroid',
+      'https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux'
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
   );
   
   // Give permissions to UltroidCli
-  await Process.start(
+  Process.runSync(
     'chmod',
     [
       'u+x',
@@ -25,18 +26,20 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  await Process.run(
-    './ultroid',
+  const init = Process.start(
+    'ultroid',
     [
       'init',
     ],
     runInShell: true,
     workingDirectory: './',
-//     mode: ProcessStartMode.inheritStdio,
+    mode: ProcessStartMode.inheritStdio,
   );
+  stdout.addStream(init.stdout);
+  stderr.addStream(init.stderr);
   
   // Install Dependencies
-  await Process.start(
+  Process.runSync(
     'pip',
     [
       'install', '-U', 'pip',
@@ -48,13 +51,13 @@ void main(List<String> args) async {
   );
   
   // Start UltroidCli
-  await Process.run(
-    './ultroid',
+  Process.start(
+    'ultroid',
     [
       'heroku',
     ],
     runInShell: true,
     workingDirectory: './',
-//     mode: ProcessStartMode.inheritStdio,
+    mode: ProcessStartMode.inheritStdio,
   );
 }
