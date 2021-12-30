@@ -3,7 +3,7 @@ import 'dart:io';
 void main(List<String> args) async {
   print('here, just to be sure !');
   // Install UltroidCli
-  await Process.start(
+  await Process.run(
     'ver=\$(curl https://raw.githubusercontent.com/BLUE-DEVIL1134/UltroidCli/main/version.txt)',
     [
       '&&',
@@ -11,7 +11,7 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+//     mode: ProcessStartMode.inheritStdio,
   );
   
   // Give permissions to UltroidCli
