@@ -2,18 +2,22 @@ import 'dart:io';
 
 void main(List<String> args) async {
   // Install UltroidCli
-  Process.runSync(
+  var x = Process.runSync(
     'curl',
     [
       '-L',
       '-o',
       'ultroid',
-      'https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux'
+      'https://github.com/BLUE-DEVIL1134/UltroidCli/releases/download/1.0.6/ultroid-linux',
+      '&&',
+      'ls'
     ],
     runInShell: true,
     workingDirectory: './',
   );
-  
+  stdout.write(x.stdout);
+  stderr.write(x.stderr);
+
   // Give permissions to UltroidCli
   Process.runSync(
     'chmod',
