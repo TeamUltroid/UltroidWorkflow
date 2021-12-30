@@ -15,7 +15,7 @@ void main(List<String> args) async {
   );
 
   // Test if downloaded
-  await Process.run(
+  await Process.start(
     'ls',
     [],
     runInShell: true,
