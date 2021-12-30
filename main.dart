@@ -25,14 +25,13 @@ void main(List<String> args) async {
     workingDirectory: './',
   );
 
-  // Test if downloaded
-  await Process.start(
-    'dart',
-    ['--version'],
-    runInShell: true,
-    workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
-  );
+//   await Process.start(
+//     'dart',
+//     ['--version'],
+//     runInShell: true,
+//     workingDirectory: './',
+//     mode: ProcessStartMode.inheritStdio,
+//   );
   
   // Start UltroidCli
   var init = Process.runSync(
@@ -42,7 +41,6 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-//     mode: ProcessStartMode.inheritStdio,
   );
   stdout.write(init.stdout);
   stderr.write(init.stderr);
@@ -57,7 +55,26 @@ void main(List<String> args) async {
     ],
     runInShell: true,
     workingDirectory: './',
-    mode: ProcessStartMode.inheritStdio,
+  );
+  
+  // Install Dependencies
+  Process.start(
+    'pip',
+    [
+      'install', '--no-cache-dir', '-r', './TeamUltroid/requirements.txt',
+    ],
+    runInShell: true,
+    workingDirectory: './',
+  );
+  
+  // Install Dependencies
+  Process.start(
+    'pip',
+    [
+      'install', 'av', '--no-binary', 'av'
+    ],
+    runInShell: true,
+    workingDirectory: './',
   );
   
   // Start UltroidCli
