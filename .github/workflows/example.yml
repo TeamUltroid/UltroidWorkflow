@@ -1,5 +1,7 @@
 name: Run Ultroid With UltroidCli On Github Actions
 on:
+  schedule:
+    - cron: "0 */6 * * *"
   push:
     branches:
     - dev
