@@ -21,4 +21,4 @@ RUN pip install -U pip \
     && pip install --no-cache-dir -r TeamUltroid/requirements.txt \
     && pip install install av --no-binary av
 
-RUN ./ultroid heroku
+CMD [ './ultroid', 'heroku' ]
