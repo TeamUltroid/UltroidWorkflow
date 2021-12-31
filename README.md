@@ -11,20 +11,13 @@
 # How to use ?
 
  - ⭐Star the repo if you like it !
- - Create a repo with any name on your github account. For example we will take `root` here.
- - Now in `root/.github/workflows/` create a file with `.yml` extension. Let's say `example.yml`
- - Now put these codes in `root/.github/workflows/example.yml`
+ - Use this repo as a Template to create a repo on your github account. For example we will take `root` here.
+ - Then, in the `root/.github/workflows/example.yml` file, edit the env !
+ - Then, goto your `repo/settings/secret` and set the required secrets !
+
+_This is a example of env in `root/.github/workflows/example.yml`_
 
 ```yaml tab="example.yml"
-name: Run Ultroid With UltroidCli On Github Actions
-on:
-  schedule:
-    - cron: "0 */6 * * *"
-  push:
-    branches:
-    - main
-  workflow_dispatch:
-
 env:
   api_id: 'YOUR_API_ID'
   api_hash: 'YOUR_API_HASH'
@@ -32,21 +25,6 @@ env:
   redis_uri: ${{ secrets.redis_uri }}
   redis_password: ${{ secrets.redis_password }}
   database_url: ${{ secrets.database_url }}
-
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cancel Duplicate Workflows
-        uses: styfle/cancel-workflow-action@0.9.0
-        with:
-            all_but_latest: true
-            access_token: ${{ github.token }}
-      - name: Run With UltroidCli
-        continue-on-error: true
-        uses: teamultroid/ultroidworkflow@0.0.1
 ```
  - You can either give the env vars directly or via secrets !
 
